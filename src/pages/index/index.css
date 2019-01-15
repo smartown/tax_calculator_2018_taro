@@ -1,0 +1,10 @@
+.container {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-color: #272a3f;
+    display: flex;
+    flex-direction: column;
+}
