@@ -1,0 +1,34 @@
+.edit-item-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.8rem;
+    background-color: #35384F;
+    border-radius: 0.2rem;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 0 0.1rem #0004;
+}
+
+.edit-item-title {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.edit-item-value {
+    font-size: 2rem;
+    min-height: 3rem;
+    color: white;
+    font-weight: bold;
+}
+
+.edit-item-value-placeholder {
+    color: #fff4;
+    font-weight: unset;
+}
+
+/* ::placeholder {
+    color: #fff4;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: normal;
+} */
