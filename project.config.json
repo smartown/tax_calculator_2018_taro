@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "TaxCalculator",
   "description": "2018新个税计算器",
-  "appid": "touristappid",
+  "appid": "wxf1eaa6b511ea4950",
   "setting": {
     "urlCheck": true,
     "es6": false,

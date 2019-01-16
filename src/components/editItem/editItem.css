@@ -11,19 +11,17 @@
 
 .edit-item-title {
     font-size: 1rem;
-    color: #ffffff;
+    color: #999;
 }
 
 .edit-item-value {
     font-size: 2rem;
     min-height: 3rem;
     color: white;
-    font-weight: bold;
 }
 
 .edit-item-value-placeholder {
-    color: #fff4;
-    font-weight: unset;
+    color: #666;
 }
 
 /* ::placeholder {

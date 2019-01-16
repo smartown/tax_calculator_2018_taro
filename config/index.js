@@ -1,6 +1,6 @@
 const config = {
   projectName: 'TaxCalculator',
-  date: '2019-1-15',
+  date: '2019-1-14',
   designWidth: 750,
   deviceRatio: {
     '640': 2.34 / 2,
