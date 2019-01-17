@@ -1,8 +1,6 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Text, Icon, Input } from "@tarojs/components";
-import { Colors } from "../constants";
+import { View, Text, Input } from "@tarojs/components";
 import "./editItem.css"
-import PropTypes from 'prop-types';
 
 interface Props {
     title: string,

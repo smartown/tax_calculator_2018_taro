@@ -1,0 +1,21 @@
+.add-item-container {
+    display: flex;
+    flex-direction: row;
+    height: 4rem;
+    align-self: stretch;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.add-item-check {
+    width: 1rem;
+    height: 1rem;
+}
+
+.add-item-title {
+    margin-left: 1rem;
+    font-size: 1rem;
+    color: white;
+}

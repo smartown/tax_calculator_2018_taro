@@ -1,0 +1,13 @@
+.add-button-container {
+    display: flex;
+    flex-direction: column;
+    height: 4rem;
+    align-self: stretch;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-button-title {
+    font-size: 1rem;
+    color: white;
+}
