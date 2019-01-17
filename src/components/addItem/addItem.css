@@ -3,8 +3,8 @@
     flex-direction: row;
     height: 4rem;
     align-self: stretch;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
     padding-left: 1rem;
     padding-right: 1rem;
 }

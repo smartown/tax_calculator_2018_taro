@@ -17,7 +17,6 @@ export default class Index extends Component {
     this.state = {
       addItem: false,
       items: [
-
       ]
     }
   }
@@ -37,11 +36,11 @@ export default class Index extends Component {
       this.state.addItem ?
         <View className="float-container" >
           <View className="section">
-            <AddItem />
+            <AddItem title={"房贷"} onCheckChanged={(isCheck)=>{}} />
             <View className="border" />
-            <AddItem />
+            <AddItem title={"子女教育"} />
             <View className="border" />
-            <AddItem />
+            <AddItem title={"抚养老人"} />
           </View>
         </View> :
         <View className="container">
@@ -77,4 +76,5 @@ export default class Index extends Component {
   addItem() {
     this.setState({ addItem: true });
   }
+
 }
