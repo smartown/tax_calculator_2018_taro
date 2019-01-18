@@ -1,3 +1,7 @@
+.background {
+    background-color: #272a3f;
+}
+
 .container {
     left: 0;
     top: 0;
@@ -5,17 +9,17 @@
     right: 0;
     padding: 1rem;
     position: absolute;
-    background-color: #272a3f;
     display: flex;
     flex-direction: column;
 }
 
 .content {
-    overflow: scroll;
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
+
+.scrollView {}
 
 .section {
     display: flex;
@@ -27,7 +31,7 @@
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3);
 }
 
-.float-container{
+.float-container {
     left: 0;
     top: 0;
     bottom: 0;
