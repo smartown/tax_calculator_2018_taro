@@ -1,9 +1,10 @@
-.edit-item-container {
+.result-item-container {
     display: flex;
     flex-direction: column;
 }
 
-.edit-item-content {
+.result-item-content {
+    height: 3.2rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -14,34 +15,20 @@
     padding-right: 1rem;
 }
 
-.edit-item-title {
+.result-item-title {
     font-size: 1rem;
     color: #999;
 }
 
-.edit-item-value {
+.result-item-value {
     flex: 1;
     text-align: right;
     margin-left: 1rem;
-    font-size: 1.5rem;
-    height: 4rem;
-    color: #1e2747;
-}
-
-.edit-item-value-placeholder {
     font-size: 1rem;
     color: #1e2747;
-    opacity: 0.25;
 }
 
-.edit-item-border {
+.result-item-border {
     height: 1px;
     background-color: #eeeeee;
 }
-
-/* ::placeholder {
-    color: #fff4;
-    font-size: 0.8rem;
-    font-style: normal;
-    font-weight: normal;
-} */

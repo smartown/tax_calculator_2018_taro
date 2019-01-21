@@ -1,21 +1,36 @@
 .add-item-container {
     display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    align-items: stretch;
+}
+
+.add-item-content {
+    display: flex;
     flex-direction: row;
     height: 4rem;
     align-self: stretch;
     align-items: center;
     justify-content: flex-start;
+}
+
+.padding-left-right{
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
 .add-item-check {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.4rem;
+    height: 1.4rem;
 }
 
 .add-item-title {
     margin-left: 0.5rem;
     font-size: 1rem;
-    color: white;
+    color: #141a32;
+}
+
+.add-item-border {
+    height: 1px;
+    background-color: #eeeeee;
 }

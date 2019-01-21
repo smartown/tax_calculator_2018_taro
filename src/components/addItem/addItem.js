@@ -5,10 +5,11 @@ import iconCheck from "../../image/check_box_check.png"
 import iconUncheck from "../../image/check_box_uncheck.png"
 
 interface Props {
-    tag: string,
-    checked: boolean,
-    title: string,
-    onCheckChanged: Function,
+    hideDivider?: boolean,
+    tag?: string,
+    checked?: boolean,
+    title?: string,
+    onCheckChanged?: Function,
 }
 
 export default class AddItem extends Component<Props> {
@@ -23,10 +24,21 @@ export default class AddItem extends Component<Props> {
     }
 
     render() {
+        if (this.props.hideDivider) {
+            return (
+                <View className="add-item-content padding-left-right" onClick={this.switch.bind(this)}>
+                    <Image className="add-item-check" src={this.state.checked ? iconCheck : iconUncheck} />
+                    <Text className="add-item-title">{this.props.title}</Text>
+                </View>
+            )
+        }
         return (
-            <View className="add-item-container" onClick={this.switch.bind(this)}>
-                <Image className="add-item-check" src={this.state.checked ? iconCheck : iconUncheck} />
-                <Text className="add-item-title">{this.props.title}</Text>
+            <View className="add-item-container padding-left-right">
+                <View className="add-item-content" onClick={this.switch.bind(this)}>
+                    <Image className="add-item-check" src={this.state.checked ? iconCheck : iconUncheck} />
+                    <Text className="add-item-title">{this.props.title}</Text>
+                </View>
+                <View className="add-item-border" />
             </View>
         )
     }

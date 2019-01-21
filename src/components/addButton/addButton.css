@@ -1,10 +1,12 @@
 .add-button-container {
     display: flex;
     flex-direction: column;
-    height: 4rem;
+    height: 3rem;
     align-self: stretch;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(to right, #ff8755, #ff365d);
+    border-radius: 0.2rem;
 }
 
 .add-button-title {
