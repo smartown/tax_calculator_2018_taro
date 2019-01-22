@@ -1,0 +1,90 @@
+.background-color-141a32 {
+    background-color: #141a32;
+}
+
+.margin-bottom-1rem {
+    margin-bottom: 1rem;
+}
+
+.container {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: white;
+    border-radius: 0.2rem;
+}
+
+.float-container {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 1rem;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.float-button {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 2rem;
+    background-color: #59d0cf;
+    box-shadow: 0 0 0.3rem #0003;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.float-button-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
+.text1 {
+    align-self: center;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #999;
+}
+
+.text2 {
+    margin-bottom: 0.5rem;
+    align-self: center;
+    font-size: 2.4rem;
+    color: #1e2747;
+}
+
+button {
+    margin: 0;
+    line-height: 3rem;
+    text-align: center;
+    height: 3rem;
+    background: linear-gradient(to right, #ff8755, #ff365d);
+    border-radius: 0.2rem;
+    font-size: 1rem;
+    color: white;
+}

@@ -87,3 +87,45 @@ export const rule20181001 = {
         }
     ]
 };
+
+export function calculate({ yuexin, shebao, gongjijin, zhuanxiangkouchu }, rule) {
+    //应纳税所得税额
+    let yingnashuie = yuexin - shebao - gongjijin - zhuanxiangkouchu - rule.start;
+    if (yingnashuie < 0) {
+        yingnashuie = 0;
+    }
+
+    //速算扣除数
+    let susuankouchushu = 0;
+    //税率
+    let shuilv = 0;
+    //个人所得税=应纳所得税额×税率-速算扣除数
+    let gerensuodeshui = 0;
+
+    if (yingnashuie > 0) {
+        let jisuanguize;
+        for (let item of rule.rule) {
+            if (yingnashuie > item.min && (yingnashuie <= item.max || item.max === -1)) {
+                jisuanguize = item;
+                break
+            }
+        }
+        if (jisuanguize) {
+            susuankouchushu = jisuanguize.quick;
+            shuilv = jisuanguize.ratio;
+            gerensuodeshui = yingnashuie * shuilv - susuankouchushu;
+        }
+    }
+    return {
+        yuexin: yuexin,
+        shebao: shebao,
+        gongjijin: gongjijin,
+        zhuanxiangkouchu: zhuanxiangkouchu,
+        qizhengdian: rule.start,
+        yingnashuie: yingnashuie,
+        shuilv: shuilv,
+        gerensuodeshui: gerensuodeshui,
+        susuankouchushu: susuankouchushu,
+        daoshougongzi: yuexin - shebao - gongjijin - gerensuodeshui
+    }
+}

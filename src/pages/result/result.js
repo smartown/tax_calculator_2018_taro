@@ -1,9 +1,8 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Text, ScrollView } from "@tarojs/components";
-import { keys, rule20181001 } from "../../components/constants";
-import "../index/index.css";
+import { View, Text, Button, ScrollView } from "@tarojs/components";
+import { rule20181001, calculate } from "../../components/constants";
+import "../../app.css"
 import ResultItem from "../../components/resultItem/resultItem";
-import AddButton from "../../components/addButton/addButton";
 
 export default class Result extends Component {
 
@@ -13,7 +12,11 @@ export default class Result extends Component {
 
   componentWillMount() {
     this.params = JSON.parse(this.$router.params.params);
-    this.result = this.calculate(this.params, rule20181001);
+    this.result = calculate(this.params, rule20181001);
+    wx.reportAnalytics('salary', {
+      salary: Number(this.params.yuexin),
+      social_security: Number(this.params.shebao)
+    });
   }
 
   componentDidMount() { }
@@ -29,13 +32,13 @@ export default class Result extends Component {
       yuexin,
       shebao,
       gongjijin,
-      deduction,
-      start,
-      pure,
-      taxRatio,
-      quick,
-      finalTax
-    } = this.result;
+      zhuanxiangkouchu,
+      qizhengdian,
+      yingnashuie,
+      shuilv,
+      gerensuodeshui,
+      susuankouchushu,
+      daoshougongzi } = this.result;
     return (
       <View className="container background-color-141a32">
         <ad unit-id="adunit-32d9c373378f92c1"></ad>
@@ -44,68 +47,22 @@ export default class Result extends Component {
           <View className="content">
             <View className="section margin-bottom-1rem">
               <Text className="text1">到手工资</Text>
-              <Text className="text2">{this.result.finalSalary.toFixed(2)}</Text>
+              <Text className="text2">{daoshougongzi.toFixed(2)}</Text>
               <ResultItem title="税前月薪" value={yuexin} />
               <ResultItem title="社保个人缴纳" value={shebao} />
               <ResultItem title="公积金个人缴纳" value={gongjijin} />
-              <ResultItem title="专项附加扣除" value={deduction} />
-              <ResultItem title="起征点" value={start} />
-              <ResultItem title="应纳税所得税额" value={pure.toFixed(2)} />
-              <ResultItem title="税率" value={(taxRatio * 100) + "%"} />
-              <ResultItem title="速算扣除数" value={quick} />
-              <ResultItem title="个人所得税" value={finalTax.toFixed(2)} />
+              <ResultItem title="专项附加扣除" value={zhuanxiangkouchu} />
+              <ResultItem title="起征点" value={qizhengdian} />
+              <ResultItem title="应纳税所得税额" value={yingnashuie.toFixed(2)} />
+              <ResultItem title="税率" value={(shuilv * 100) + "%"} />
+              <ResultItem title="速算扣除数" value={susuankouchushu} />
+              <ResultItem title="个人所得税" value={gerensuodeshui.toFixed(2)} />
             </View>
-            <AddButton title={"用的满意记得分享给小伙伴哦！"} onClick={this.share}></AddButton>
+            <Button openType="share">用的满意记得分享给小伙伴哦！</Button>
           </View>
         </ScrollView>
       </View>
     );
-  }
-
-  calculate(params, ruleObject) {
-    //应纳所得税额
-    let pure = params[keys.yuexin] - params[keys.shebao] - params[keys.gongjijin] - params.deduction - ruleObject.start;
-    if (pure < 0) {
-      pure = 0;
-    }
-
-    //速算扣除数
-    let quick = 0;
-    //税额，实际交税还要减去速算扣除数
-    let taxRatio = 0;
-    //税额，实际交税还要减去速算扣除数
-    let tax = 0;
-
-    if (pure > 0) {
-      let taxRule;
-      for (let item of ruleObject.rule) {
-        if (pure > item.min && (pure <= item.max || item.max === -1)) {
-          taxRule = item;
-          break
-        }
-      }
-      if (taxRule) {
-        quick = taxRule.quick;
-        taxRatio = taxRule.ratio;
-        tax = taxRatio * pure;
-      }
-    }
-
-    const finalTax = tax - quick;
-    const finalSalary = params[keys.yuexin] - params[keys.shebao] - params[keys.gongjijin] - finalTax;
-    return {
-      yuexin: params[keys.yuexin],
-      shebao: params[keys.shebao],
-      gongjijin: params[keys.gongjijin],
-      deduction: params.deduction,
-      start: ruleObject.start,
-      pure: pure,
-      taxRatio: taxRatio,
-      tax: tax,
-      quick: quick,
-      finalTax: finalTax,
-      finalSalary: finalSalary
-    }
   }
 
   /**
@@ -119,7 +76,4 @@ export default class Result extends Component {
     }
   }
 
-  share() {
-    wx.showShareMenu();
-  }
 }

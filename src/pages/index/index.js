@@ -1,9 +1,8 @@
 import Taro, { Component } from "@tarojs/taro"
-import { View, Image, ScrollView } from "@tarojs/components"
+import { View, Image, ScrollView, Button } from "@tarojs/components"
 import EditItem from "../../components/editItem/editItem"
 import ic_calculate from "../../image/calculate.png"
-import "./index.css"
-import AddButton from "../../components/addButton/addButton";
+import "../../app.css"
 import AddItem from "../../components/addItem/addItem";
 import { tags, keys } from "../../components/constants";
 
@@ -46,7 +45,7 @@ export default class Index extends Component {
           <View className="section margin-bottom-1rem">
             {addItems}
           </View>
-          <AddButton title={"确认"} onClick={this.finishAddItem.bind(this)} />
+          <Button onClick={this.finishAddItem.bind(this)} >确认</Button>
         </View>
       );
     }
@@ -70,7 +69,7 @@ export default class Index extends Component {
               <View className="section margin-bottom-1rem">
                 {editItems}
               </View>
-              <AddButton title={"添加专项附加扣除"} onClick={this.addItem.bind(this)} />
+              <Button onClick={this.addItem.bind(this)} >添加专项附加扣除</Button>
             </View>
           </ScrollView>
           <View className="float-button" onClick={this.checkInput.bind(this)}>
@@ -89,7 +88,7 @@ export default class Index extends Component {
               <EditItem tag={keys.shebao} value={this.values[keys.shebao]} title={"社保个人缴纳"} placeholder={"请输入"} inputType={"digit"} maxLength={9} onValueChanged={this.setItemValue.bind(this)} />
               <EditItem tag={keys.gongjijin} value={this.values[keys.gongjijin]} title={"公积金个人缴纳"} placeholder={"请输入"} inputType={"digit"} maxLength={9} hideDivider={true} onValueChanged={this.setItemValue.bind(this)} />
             </View>
-            <AddButton title={"添加专项附加扣除"} onClick={this.addItem.bind(this)} />
+            <Button onClick={this.addItem.bind(this)} >添加专项附加扣除</Button>
           </View>
         </ScrollView>
         <View className="float-button" onClick={this.checkInput.bind(this)}>
@@ -148,7 +147,7 @@ export default class Index extends Component {
       shebao: shebao,
       gongjijin: gongjijin,
     }
-    let deduction = 0;
+    let zhuanxiangkouchu = 0;
     let error = false;
     const length = this.items.length;
     for (let index = 0; index < length; index++) {
@@ -159,11 +158,11 @@ export default class Index extends Component {
         this.showToast("请输入" + item.title + "扣除金额");
         break;
       }
-      deduction += parseInt(value);
+      zhuanxiangkouchu += parseInt(value);
       inputValues[item.key] = value;
     }
     if (!error) {
-      inputValues.deduction = deduction;
+      inputValues.zhuanxiangkouchu = zhuanxiangkouchu;
       Taro.navigateTo({
         url: '/pages/result/result?params=' + JSON.stringify(inputValues)
       })
